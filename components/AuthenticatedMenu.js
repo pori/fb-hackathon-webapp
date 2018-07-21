@@ -1,12 +1,24 @@
+import React, { Component } from 'react';
 import Link from 'next/link';
+import router from 'next/router';
 
-export default () => (
-  <ul class="menu">
-    <li>
-      <Link href="/dashboard">Dashboard</Link>
-    </li>
-    <li>
-      <Link href="/">Log the fuck out</Link>
-    </li>
-  </ul>
-);
+export default class AuthenticatedMenu extends Component {
+  signOut = () => {
+    firebase.auth().signOut();
+  };
+
+  render() {
+    return (
+      <ul className="menu">
+        <li>
+          <Link href="/dashboard">
+            <a>Dashboard</a>
+          </Link>
+        </li>
+        <li>
+          <a onClick={this.signOut}>Log the fuck out</a>
+        </li>
+      </ul>
+    );
+  }
+}

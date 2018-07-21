@@ -1,12 +1,16 @@
 import Link from 'next/link';
 
 export default () => (
-  <ul class="menu">
+  <ul className="menu">
     <li>
-      <Link href="/">Home</Link>
+      <Link href="/">
+        <a>Home</a>
+      </Link>
     </li>
     <li>
-      <Link href="/login">Login</Link>
+      <Link href="/login">
+        <a>Login</a>
+      </Link>
     </li>
   </ul>
 );
