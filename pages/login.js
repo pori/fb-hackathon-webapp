@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import unauthenticated from '../layouts/unauthenticated';
-import Router from 'next/router';
+import React, { Component } from "react";
+import unauthenticated from "../layouts/unauthenticated";
+import Router from "next/router";
 
 class Login extends Component {
   state = {
@@ -14,13 +14,13 @@ class Login extends Component {
       .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       .then(() => {
         const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
-        facebookAuthProvider.setCustomParameters({ display: 'popup' });
+        facebookAuthProvider.setCustomParameters({ display: "popup" });
 
         return auth.signInWithPopup(facebookAuthProvider);
       })
       .then(result => {
         global.result = result;
-        Router.push('/dashboard');
+        Router.push("/dashboard");
       })
       .catch(() => {
         this.setState({ error: true });
