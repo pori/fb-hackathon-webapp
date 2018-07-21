@@ -1,8 +1,7 @@
-import Link from 'next/link';
+import authenticated from '../layouts/authenticated';
 
-export default () => (
+export default authenticated(() => (
   <div>
-    <Link href="/">Log the fuck out</Link>
     <div>List of your Videos</div>
   </div>
-);
+));
